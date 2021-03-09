@@ -6,9 +6,9 @@ namespace ODataCore3.API.Providers
 {
     public class ReadersRepo : IReadersRepo
     {
-        private readonly IReadersContext context;
+        private readonly ReadersContext context;
 
-        public ReadersRepo(IReadersContext context)
+        public ReadersRepo(ReadersContext context)
         {
             this.context = context;
         }

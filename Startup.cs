@@ -2,10 +2,12 @@ using System.Linq;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData.Edm;
 using ODataCore3.API.Contracts;
+using ODataCore3.API.Models;
 using ODataCore3.API.Providers;
 
 namespace ODataCore3.API
@@ -23,10 +25,16 @@ namespace ODataCore3.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IReadersContext, ReadersContext>();
+            services.AddDbContext<ReadersContext>(options =>
+            {
+                options.UseSqlite("Filename=app.db");
+            });
+
             services.AddScoped<IReadersRepo, ReadersRepo>();
+
             services.AddOData();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddRouting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,18 +42,50 @@ namespace ODataCore3.API
         {
             app.UseHttpsRedirection();
 
+            SeedData(app);
+
             IEdmModel model = EdmModelBuilder.Build();
 
-            app.UseOData(model);
+            app.UseRouting();
 
-            app.UseMvc(builder =>
+            app.UseEndpoints(options =>
             {
-                builder.Select().Expand().Filter().OrderBy().MaxTop(1000).Count();
-                builder.MapODataServiceRoute("odata", "odata", model);
-                builder.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
+                options.Select().Expand().Filter().OrderBy().MaxTop(1000).Count();
+                options.MapODataRoute("odata", "odata", model);
+                options.MapDefaultControllerRoute();
             });
         }
 
+        private void SeedData(IApplicationBuilder app)
+        {
+            using (var sp = app.ApplicationServices.CreateScope())
+            {
+                var db = sp.ServiceProvider.GetRequiredService<ReadersContext>();
 
+                db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
+
+                for (int i = 1001; i <= 1100; i++)
+                {
+                    db.Users.Add(new User
+                    {
+                        Id = i,
+                        UserName = $"User#{i}",
+                        EmailAddress = $"user.{i}@abc.com",
+                        IsActive = true
+                    });
+                    db.Readers.Add(new Reader
+                    {
+                        Id = i,
+                        Name = $"Reader#{i}",
+                        AddedOn = System.DateTime.Now,
+                        Description = "Loreum Ipseum Loreum Ipseum",
+                        UserId = i
+                    });
+                }
+
+                db.SaveChanges();
+            }
+        }
     }
 }
