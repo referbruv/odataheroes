@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataHeroes.API", "ODataHeroes.API\ODataHeroes.API.csproj", "{378CA8FC-6BCB-4271-80B0-09A6908A1865}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataHeroes.Contracts", "ODataHeroes.Contracts\ODataHeroes.Contracts.csproj", "{D5B15F5C-223D-4C2F-9F80-6C372A5817F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataHeroes.Core", "ODataHeroes.Core\ODataHeroes.Core.csproj", "{33ABA611-4CF9-4E0C-A8AB-FDC54DBF6262}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataHeroes.Migrations", "ODataHeroes.Migrations\ODataHeroes.Migrations.csproj", "{A1CF4941-1EF2-4F39-A295-175C56F06F18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{DACBB4D9-FB1B-4670-B4F0-7EF437F1EFB1}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{378CA8FC-6BCB-4271-80B0-09A6908A1865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378CA8FC-6BCB-4271-80B0-09A6908A1865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378CA8FC-6BCB-4271-80B0-09A6908A1865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378CA8FC-6BCB-4271-80B0-09A6908A1865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B15F5C-223D-4C2F-9F80-6C372A5817F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B15F5C-223D-4C2F-9F80-6C372A5817F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B15F5C-223D-4C2F-9F80-6C372A5817F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B15F5C-223D-4C2F-9F80-6C372A5817F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33ABA611-4CF9-4E0C-A8AB-FDC54DBF6262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33ABA611-4CF9-4E0C-A8AB-FDC54DBF6262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33ABA611-4CF9-4E0C-A8AB-FDC54DBF6262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33ABA611-4CF9-4E0C-A8AB-FDC54DBF6262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CF4941-1EF2-4F39-A295-175C56F06F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CF4941-1EF2-4F39-A295-175C56F06F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CF4941-1EF2-4F39-A295-175C56F06F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CF4941-1EF2-4F39-A295-175C56F06F18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77CF027B-59D7-4910-9CF3-1F24FDC3463C}
+	EndGlobalSection
+EndGlobal
