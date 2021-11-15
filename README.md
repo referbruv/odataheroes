@@ -8,6 +8,18 @@ OData stands for Open Data. It is an ISO/IEC approved, OASIS standard that defin
 
 One can integrate the prowess of OData into an ASP.NET Core API by installing the OData nuget available for .NET Core and get started.
 
+# Technologies
+
+# About the Boilerplate
+
+This boilerplate is a perfect starter for developers looking to implement OData. The solution offers the following:
+
+1. Onion Architecture with defined layers for API, Persistence, Contracts and Migrations
+2. Implemented code for UnitOfWork with Repository
+3. Seperated Controllers for API and OData
+4. Preconfigured Entity Framework Core migrations with SQLite
+5. Seeded data to view results as the solution starts
+
 # Getting Started
 
 To get started, follow the below steps:
