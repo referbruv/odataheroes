@@ -5,6 +5,6 @@ namespace ODataHeroes.Contracts.Data.Repositories
 {
     public interface IHeroesRepository : IRepository<Hero>
     {
-        HeroDto GetHeroes(int id);
+        Hero GetHeroes(int id);
     }
 }
