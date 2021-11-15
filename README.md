@@ -1,4 +1,4 @@
-# ODataHeroes - An ASP.NET Core boilerplate to demonstrate OData Integration
+# ODataHeroes - ASP.NET Core OData Boilerplate
 
 ODataHeroes is a boilerplate solution, built to demonstrate OData API implementation in an ASP.NET Core (.NET 5) API
 
@@ -9,6 +9,11 @@ OData stands for Open Data. It is an ISO/IEC approved, OASIS standard that defin
 One can integrate the prowess of OData into an ASP.NET Core API by installing the OData nuget available for .NET Core and get started.
 
 # Technologies
+
+1. ASP.NET Core (.NET 5)
+2. Entity Framework Core (EF Core 5)
+3. OData Library for ASP.NET Core (8.0.4)
+4. SQLite
 
 # About the Boilerplate
 
