@@ -1,14 +1,14 @@
+using System.Linq;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.OData;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ODataHeroes.Contracts.Data.Repositories;
-using ODataHeroes.Core.Data.Repositories;
-using ODataHeroes.Migrations;
+using Microsoft.OData.Edm;
+using ODataCore3.API.Contracts;
+using ODataCore3.API.Providers;
 
-namespace ODataHeroes.API
+namespace ODataCore3.API
 {
     public class Startup
     {
@@ -22,27 +22,27 @@ namespace ODataHeroes.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DatabaseContext>((builder) =>
-            {
-                builder.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection"),
-                    (x) => x.MigrationsAssembly("ODataHeroes.Migrations"));
-            });
-
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.AddControllers().AddOData(opt => opt.AddRouteComponents("odata", EdmModelBuilder.Build()));
+            services.AddControllers();
+            services.AddScoped<IReadersContext, ReadersContext>();
+            services.AddScoped<IReadersRepo, ReadersRepo>();
+            services.AddOData();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseHttpsRedirection();
-            app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            IEdmModel model = EdmModelBuilder.Build();
+
+            app.UseOData(model);
+
+            app.UseMvc(builder =>
             {
-                endpoints.MapControllers();
+                builder.Select().Expand().Filter().OrderBy().MaxTop(1000).Count();
+                builder.MapODataServiceRoute("odata", "odata", model);
+                builder.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 
