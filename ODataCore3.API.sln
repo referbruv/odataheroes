@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataCore3.API", "ODataCore3.API.csproj", "{55EFDA4B-F876-43CC-B5A2-E39C7D60760E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55EFDA4B-F876-43CC-B5A2-E39C7D60760E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55EFDA4B-F876-43CC-B5A2-E39C7D60760E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55EFDA4B-F876-43CC-B5A2-E39C7D60760E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55EFDA4B-F876-43CC-B5A2-E39C7D60760E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0F39F0A-0812-4E3C-AE39-F2E41E809EE8}
+	EndGlobalSection
+EndGlobal
