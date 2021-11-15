@@ -40,7 +40,7 @@ namespace ODataHeroes.Core.Data.Repositories
             }
         }
 
-        public T? Get(object id)
+        public T Get(object id)
         {
             var x = _dbSet.Find(id);
             return x;

@@ -1,12 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
+using ODataHeroes.Contracts.Controllers;
 using ODataHeroes.Contracts.Data.Repositories;
 using System.Linq;
 
-namespace ODataHeroes.API.Controllers
+namespace ODataHeroes.API.Controllers.OData
 {
-    public class HeroesController : ODataController
+    public class HeroesController : ODataController, IHeroesController
     {
         private readonly IHeroesRepository _db;
 
@@ -16,8 +17,8 @@ namespace ODataHeroes.API.Controllers
         }
 
         [EnableQuery]
-        [HttpGet]
-        [HttpGet("$count")]
+        [HttpGet("odata/Heroes")]
+        [HttpGet("odata/Heroes/$count")]
         public IActionResult Get()
         {
             var x = _db.GetAll().AsQueryable();
